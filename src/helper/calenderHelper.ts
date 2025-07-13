@@ -31,14 +31,13 @@ export async function dateSelector(dateString: string){
         var displayMonth =await calender.getcalenderMonth().innerText();
         var displayYearMonth = await calender.getYearMonth().innerText();
         displayYearMonth = displayYearMonth.replace(/\s+/g, ' ').trim(); // Normalize spaces
-        // console.log(Number(year)+"   " + "  "+(displayYearMonth.toString().split(' ')[1]));
         if(Number(year) < Number(displayYearMonth.split(' ')[1])) {
-            console.log('I am inside')
+            
             for(var i = 0; ; i++) {
                 await calender.getLeftclick().click();
                 displayYearMonth =await calender.getYearMonth().innerText()
                 displayYearMonth = displayYearMonth.replace(/\s+/g, ' ').trim(); // Normalize spaces
-                console.log(displayYearMonth)
+               
                 if(displayYearMonth === month+' '+ year) {
                     await calender.getcalenderDay().filter({ hasText: day }).click();
                     break;
@@ -49,19 +48,15 @@ export async function dateSelector(dateString: string){
                 await calender.getRightclick().click();
                 displayYearMonth =await calender.getYearMonth().innerText()
                 displayYearMonth = displayYearMonth.replace(/\s+/g, ' ').trim(); // Normalize spaces
-                console.log(displayYearMonth)
+                
                 if(displayYearMonth === month+' '+ year) {
                     await calender.getcalenderDay().filter({ hasText: day }).click();
                     break;
                 } 
             }
         }else if(Number(year) === Number(displayYearMonth.split(' ')[1])) {
-
-            // console.log(monthtoNumber(month.toString()) + "  " + monthtoNumber(displayMonth.toString()));
-            console.log(monthtoNumber(month)> monthtoNumber(displayMonth))
             for( i = 0;  ; i++) {
-                
-                monthtoNumber(month)> monthtoNumber(await calender.getcalenderMonth().innerText()) ? rightorleft= calender.getRightclick() : rightorleft=  calender.getLeftclick()
+                 monthtoNumber(month)> monthtoNumber(await calender.getcalenderMonth().innerText()) ? rightorleft= calender.getRightclick() : rightorleft=  calender.getLeftclick()
                 
                 if(monthtoNumber(month)!= monthtoNumber(await calender.getcalenderMonth().innerText())){
 
@@ -72,7 +67,6 @@ export async function dateSelector(dateString: string){
                 }
                 
             }
-        //    calender.getRightclick().click() 
            
         }
             
@@ -88,3 +82,11 @@ function monthtoNumber(month: string): number {
     return months.indexOf(month) + 1; // +1 because index starts at 0
 }
 
+export  function verifySelectedDate(expectedDate: string):string{
+    var displayDay = expectedDate.split('/')[1];
+    var displayMonth = expectedDate.split('/')[0];
+    var displayYear = expectedDate.split('/')[2];
+
+    return displayDay+'-'+displayMonth+'-'+displayYear;
+    
+} 

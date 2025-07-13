@@ -29,4 +29,7 @@
     getRightclick() : any {
         return pageFixture.page?.locator('.ui-icon.ui-icon-circle-triangle-e');
     }
+    getCalenderInputfield() : any {
+        return pageFixture.page?.locator('#first_date_picker');
+    }
 }

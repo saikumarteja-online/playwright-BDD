@@ -19,3 +19,19 @@ Before(async function() {
     pageFixture.context = context;
 });
 
+After(async function() {
+    // Only close the page and context, keep browser open
+    if (pageFixture.page) {
+        await pageFixture.page.close();
+    }
+    if (pageFixture.context) {
+        await pageFixture.context.close();
+    }
+});
+
+AfterAll(async function() {
+    // Close the browser at the very end
+    if (browser) {
+        await browser.close();
+    }
+});

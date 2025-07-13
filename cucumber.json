@@ -1,7 +1,12 @@
 {
     "default":{
+        
+        "format":[
+            "allure-cucumberjs/reporter" 
+       ],
         "formatoptions":{
-            "snippentInterface":"async-await"
+            "snippentInterface":"async-await",
+            "resultsDir":"allure-result"
         },
         "paths":[
             "src/test/feature/"
@@ -15,4 +20,5 @@
             "ts-node/register"
         ]
     }
+    
 }

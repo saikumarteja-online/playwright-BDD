@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test":"cucumber-js test"
+    "test herokuapp": "cucumber-js --require-module ts-node/register --require src/test/steps/**/*.ts src/test/feature/herokuapp.feature",
+    "allugen": "allure generate ./allure-results --clean -o ./allure-report",
+    "alluopen": "allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@cucumber/messages": "^28.0.0",
     "@playwright/test": "^1.53.2",
     "@types/node": "^24.0.12",
+    "allure-cucumberjs": "^3.3.0",
+    "allure-playwright": "^3.3.0",
     "cucumber": "^6.0.7",
+    "cucumberjs-allure2-reporter": "^1.3.0",
+    "dotenv": "^17.2.0",
     "ts-node": "^10.9.2"
   }
 }
