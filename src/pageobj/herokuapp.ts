@@ -15,4 +15,28 @@ export class Herokuapp {
             name:'Delete'
         })
     }
+
+    getNavigateTobrokenImageSite() : any {
+        return pageFixture.page?.getByText('Broken Images')
+    }
+
+    getBrokenImage() : any {
+        return pageFixture.page?.locator('img')
+    }
+
+    getCheckbox1() : any {
+        return pageFixture.page?.locator('input[type="checkbox"]').nth(0);
+    }
+    getCheckbox2() : any {
+        return pageFixture.page?.locator('input[type="checkbox"]').nth(1);
+    }
+    getchecboxwebpage() : any {
+        return pageFixture.page?.getByText('Checkboxes')
+    }
+    getopenContextMenu() : any {
+        return pageFixture.page?.getByText('Context Menu')
+    }
+    getContextMenu() : any {
+        return pageFixture.page?.locator('#hot-spot');
+    }
 }

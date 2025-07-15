@@ -11,7 +11,7 @@
         "paths":[
             "src/test/feature/"
         ],
-        "dryrun":true,
+        "dryrun":false,
         "require":[
             "src/test/steps/**/*.ts",
             "src/hooks/**/*.ts"
